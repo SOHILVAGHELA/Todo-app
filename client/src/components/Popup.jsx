@@ -7,7 +7,9 @@ function Popup({ setShowPopup, popupContent, setUpdateUi }) {
   const [input, setInput] = useState(popupContent.text);
   const updatetodo = () => {
     axios
-      .put(`${baseURl}/update/${popupContent.id}`, { todo: input })
+      .put(`https://todo-app-kmrk.onrender.com/update/${popupContent.id}`, {
+        todo: input,
+      })
       .then((res) => {
         setUpdateUi((prevState) => !prevState);
         setShowPopup(false);

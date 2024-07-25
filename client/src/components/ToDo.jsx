@@ -6,9 +6,11 @@ import { baseURl } from "../utils/constant";
 
 function ToDo({ text, id, setUpdateUi, setShowPopup, setPopupContent }) {
   const deletetodo = () => {
-    axios.delete(`${baseURl}/delete/${id}`).then((res) => {
-      setUpdateUi((prevState) => !prevState);
-    });
+    axios
+      .delete(`https://todo-app-kmrk.onrender.com/delete/${id}`)
+      .then((res) => {
+        setUpdateUi((prevState) => !prevState);
+      });
   };
   const updateTodo = () => {
     setPopupContent({ text, id });

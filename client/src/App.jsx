@@ -12,14 +12,14 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`${baseURl}/get`)
+      .get(`https://todo-app-kmrk.onrender.com/get`)
       .then((res) => setTodos(res.data))
       .catch((err) => console.log(err));
   }, [updateUi]);
 
   const savetodo = (e) => {
     axios
-      .post(`${baseURl}/save`, { todo: input })
+      .post(`https://todo-app-kmrk.onrender.com/save`, { todo: input })
       .then((res) => {
         setUpdateUi((prevState) => !prevState);
         setInput("");
