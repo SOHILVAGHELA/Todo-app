@@ -9,7 +9,6 @@ function Popup({ setShowPopup, popupContent, setUpdateUi }) {
     axios
       .put(`${baseURl}/update/${popupContent.id}`, { todo: input })
       .then((res) => {
-        console.log(res.data);
         setUpdateUi((prevState) => !prevState);
         setShowPopup(false);
       });

@@ -7,7 +7,6 @@ import { baseURl } from "../utils/constant";
 function ToDo({ text, id, setUpdateUi, setShowPopup, setPopupContent }) {
   const deletetodo = () => {
     axios.delete(`${baseURl}/delete/${id}`).then((res) => {
-      console.log(res.data);
       setUpdateUi((prevState) => !prevState);
     });
   };

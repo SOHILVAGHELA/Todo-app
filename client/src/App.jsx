@@ -21,7 +21,6 @@ function App() {
     axios
       .post(`${baseURl}/save`, { todo: input })
       .then((res) => {
-        console.log(res.data);
         setUpdateUi((prevState) => !prevState);
         setInput("");
       })
