@@ -7,13 +7,17 @@ function Popup({ setShowPopup, popupContent, setUpdateUi }) {
   const [input, setInput] = useState(popupContent.text);
   const updatetodo = () => {
     axios
-      .put(`https://todo-app-kmrk.onrender.com/update/${popupContent.id}`, {
-        todo: input,
-      })
+      .put(`${baseURl}/update/${popupContent.id}`, { todo: input })
       .then((res) => {
         setUpdateUi((prevState) => !prevState);
         setShowPopup(false);
       });
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      updatetodo();
+    }
   };
   return (
     <div className="backdrop">
@@ -24,6 +28,7 @@ function Popup({ setShowPopup, popupContent, setUpdateUi }) {
           <input
             type="text"
             value={input}
+            onKeyDown={handleKeyDown}
             onChange={(e) => setInput(e.target.value)}
             placeholder="update a todo"
           />
